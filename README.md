@@ -1,7 +1,7 @@
 # `Currency Exchange Calculator`
 
 ## Demo:
-[click to visit](https://radekw86.github.io/currency-converter-basic/)
+[click to visit](https://radekw86.github.io/currency-converter-basic-react/)
 
 ## General info:
 This basic calculator allows you to convert 1-1000 PLN into respective USD, EUR, GBP, CHF values.
