@@ -1,8 +1,8 @@
 import "./style.css";
 
-const Section = (prpos) => (
+const Section = (props) => (
     <section className="section">
-        {prpos.children}
+        {props.children}
     </section>
 );
 
