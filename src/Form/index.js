@@ -14,10 +14,7 @@ const Form = () => {
   };
 
   const printResult = (result) => {
-    setDisplayResult(
-      (displayResult) =>
-        (displayResult = `Your ${inputAmount} PLN is worth ${result.toFixed(2)} ${currency}`)
-    );
+    setDisplayResult(`Your ${inputAmount} PLN is worth ${result.toFixed(2)} ${currency}`)
   };
 
   const onFormSubmit = (event) => {
