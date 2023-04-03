@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import Section from "./Section";
 import Header from "./Header";
 import Form from "./Form";
 import Footer from "./Footer";
+import currencies from "./currenciesList";
 
 function App() {
   return (
