@@ -14,7 +14,7 @@ This basic calculator allows you to convert 1-1000 PLN into respective USD, EUR,
 </ul>
 
 ## Preview:
-![Preview](public/images/preview.png)
+![Preview](preview.png)
 
 
 
