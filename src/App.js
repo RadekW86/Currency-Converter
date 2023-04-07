@@ -3,7 +3,7 @@ import Section from "./Section";
 import Header from "./Header";
 import Form from "./Form";
 import Footer from "./Footer";
-import currencies from "./currenciesList";
+import Clock from "./Clock";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Header title={"Currency exchange calculator"} />
       </Section>
       <Section>
+        <Clock />
         <Form />
       </Section>
       <Section>
