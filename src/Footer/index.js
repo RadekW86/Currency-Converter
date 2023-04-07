@@ -1,21 +1,19 @@
 import "./style.css";
 import envelope from "../envelope.png";
 
-const Footer = () => {
-  return (
-    <footer className="footer">
-      © 2023 - copyright Radosław Włodarski
-      <br />
+const Footer = () => (
+  <footer className="footer">
+    <div>© 2023 - copyright Radosław Włodarski</div>
+    <a href="mailto:wlodarski.radek@gmail.com">
       <img
         className="footer__icon"
         width="40"
         height="24"
         src={envelope}
         alt="mail_me"
-        onClick={() => (window.location = "mailto:wlodarski.radek@gmail.com")}
       />
-    </footer>
-  );
-};
+    </a>
+  </footer>
+);
 
 export default Footer;
