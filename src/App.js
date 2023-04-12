@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Section from "./Section";
-import Header from "./Header";
-import Form from "./Form";
-import Footer from "./Footer";
-import Clock from "./Clock";
+import Header from "./Section/Header";
+import Form from "./Section/Form";
+import Footer from "./Section/Footer";
+import Clock from "./Section/Clock";
 
 function App() {
   return (

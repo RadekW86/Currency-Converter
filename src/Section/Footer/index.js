@@ -1,5 +1,5 @@
 import "./style.css";
-import envelope from "../envelope.png";
+import envelope from "../../envelope.png";
 
 const Footer = () => (
   <footer className="footer">
