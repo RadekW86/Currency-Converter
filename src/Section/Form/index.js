@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import currencies from "../../currenciesList";
-import "./style.css";
+import {
+  StyledForm,
+  StyledLabel,
+  StyledInput,
+  StyledSelect,
+  StyledButton,
+} from "./styled.js";
 
 const Form = () => {
   const [inputAmount, setImputAmount] = useState("");
@@ -14,7 +20,9 @@ const Form = () => {
   };
 
   const printResult = (result) => {
-    setDisplayResult(`Your ${inputAmount} PLN is worth ${result.toFixed(2)} ${currency}`)
+    setDisplayResult(
+      `Your ${inputAmount} PLN is worth ${result.toFixed(2)} ${currency}`
+    );
   };
 
   const onFormSubmit = (event) => {
@@ -24,11 +32,10 @@ const Form = () => {
   };
 
   return (
-    <form className="form" onSubmit={onFormSubmit}>
-      <label className="form__label">
+    <StyledForm onSubmit={onFormSubmit}>
+      <StyledLabel>
         <div>Amount in PLN:</div>{" "}
-        <input
-          className="form__input"
+        <StyledInput
           type="number"
           min="1"
           max="1000000"
@@ -39,11 +46,10 @@ const Form = () => {
           value={inputAmount}
           onChange={(event) => setImputAmount(event.target.value)}
         />
-      </label>
-      <label className="form__label">
+      </StyledLabel>
+      <StyledLabel>
         <div>Currency:</div>
-        <select
-          className="form__input"
+        <StyledSelect
           name="Currency"
           required
           placeholder="--- choose currency ---"
@@ -53,11 +59,11 @@ const Form = () => {
           {currencies.map((currency) => (
             <option key={currency.id}>{currency.symbol}</option>
           ))}
-        </select>
-      </label>
-      <button className="form__button">CALC.</button>
+        </StyledSelect>
+      </StyledLabel>
+      <StyledButton>CALC.</StyledButton>
       <div>{displayResult}</div>
-    </form>
+    </StyledForm>
   );
 };
 
