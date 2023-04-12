@@ -20,14 +20,8 @@ export const StyledInput = styled.input`
   text-align: center;
 `;
 
-export const StyledSelect = styled.select`
-  width: 250px;
-  height: 35px;
-  text-align: center;
-`;
-
 export const StyledButton = styled.button`
-  background-color: darkolivegreen;
+  background-color: ${({ theme }) => theme.buttonColor};
   color: white;
   height: 40px;
   width: 150px;

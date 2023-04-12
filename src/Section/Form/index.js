@@ -4,7 +4,6 @@ import {
   StyledForm,
   StyledLabel,
   StyledInput,
-  StyledSelect,
   StyledButton,
 } from "./styled.js";
 
@@ -49,7 +48,8 @@ const Form = () => {
       </StyledLabel>
       <StyledLabel>
         <div>Currency:</div>
-        <StyledSelect
+        <StyledInput
+          as="select"
           name="Currency"
           required
           placeholder="--- choose currency ---"
@@ -59,7 +59,7 @@ const Form = () => {
           {currencies.map((currency) => (
             <option key={currency.id}>{currency.symbol}</option>
           ))}
-        </StyledSelect>
+        </StyledInput>
       </StyledLabel>
       <StyledButton>CALC.</StyledButton>
       <div>{displayResult}</div>

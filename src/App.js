@@ -1,13 +1,17 @@
-import React, { useState } from "react";
 import Section from "./Section";
 import Header from "./Section/Header";
 import Form from "./Section/Form";
 import Footer from "./Section/Footer";
 import Clock from "./Section/Clock";
+import {ThemeProvider} from "styled-components";
+import { useState } from "react";
+import themes from "./themes";
 
 function App() {
+const [theme, setTheme] = useState(themes[0]);
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Section>
         <Header title={"Currency exchange calculator"} />
       </Section>
@@ -18,7 +22,7 @@ function App() {
       <Section>
         <Footer />
       </Section>
-    </>
+    </ThemeProvider>
   );
 }
 
