@@ -1,4 +1,4 @@
-import "./style.css";
+import { StyledClock } from "./styled.js";
 import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = () => {
@@ -24,10 +24,10 @@ const Clock = () => {
 
   return (
     <>
-      <div className="clock">
+      <StyledClock>
         Today is {formatWeekday(dateNow)}, {formatDayMonth(dateNow)},{" "}
         {formatTime(dateNow)}
-      </div>
+      </StyledClock>
     </>
   );
 };
