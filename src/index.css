@@ -6,7 +6,7 @@ html {
   box-sizing: inherit;
 }
 
-.body {
+body {
   max-width: 900px;
   min-height: 600px;
   margin: 0 auto;
