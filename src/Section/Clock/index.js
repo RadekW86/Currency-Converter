@@ -1,32 +1,17 @@
 import { StyledClock } from "./styled.js";
 import { useCurrentDate } from "./useCurrentDate";
+import { formatWeekday } from "./helper.js";
+import { formatDayMonth } from "./helper.js";
+import { formatTime } from "./helper.js";
 
 const Clock = () => {
-  const dateNow = useCurrentDate();
-
-  const formatWeekday = (date) =>
-    date.toLocaleDateString("en-EN", {
-      weekday: "long",
-    });
-
-  const formatDayMonth = (date) =>
-    date.toLocaleDateString("en-EN", {
-      month: "long",
-      day: "numeric",
-    });
-
-  const formatTime = (time) =>
-    time.toLocaleTimeString("en-EN", {
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-    });
+  const currentDate = useCurrentDate();
 
   return (
     <>
       <StyledClock>
-        Today is {formatWeekday(dateNow)}, {formatDayMonth(dateNow)},{" "}
-        {formatTime(dateNow)}
+        Today is {formatWeekday(currentDate)}, {formatDayMonth(currentDate)},{" "}
+        {formatTime(currentDate)}
       </StyledClock>
     </>
   );
