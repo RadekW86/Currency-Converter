@@ -4,7 +4,7 @@ import {
   StyledLabel,
   StyledHeading,
 } from "./styled.js";
-import themes from "../../themes.js";
+import themes from "../themes.js";
 
 const ThemeChoice = (props) => (
   <>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import currencies from "../../currenciesList";
+import currencies from "../currenciesList";
 import {
   StyledForm,
   StyledLabel,

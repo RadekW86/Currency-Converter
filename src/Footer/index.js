@@ -1,5 +1,5 @@
 import {StyledFooter, StyledIcon} from "./styled.js";
-import envelope from "../../envelope.png";
+import envelope from "../envelope.png";
 
 const Footer = () => (
   <StyledFooter>

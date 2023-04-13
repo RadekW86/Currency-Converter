@@ -1,9 +1,9 @@
 import Section from "./Section";
-import Header from "./Section/Header";
-import Form from "./Section/Form";
-import ThemeChoice from "./Section/Theme";
-import Footer from "./Section/Footer";
-import Clock from "./Section/Clock";
+import Header from "./Header";
+import Form from "./Form";
+import ThemeChoice from "./Theme";
+import Footer from "./Footer";
+import Clock from "./Clock";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import themes from "./themes";
