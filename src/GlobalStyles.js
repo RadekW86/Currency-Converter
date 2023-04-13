@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components";
+import background from "./money_faces.jpg";
+
+export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
 }
@@ -15,7 +19,7 @@ body {
   line-height: 1.5;
   color: #222;
   font-family: "Roboto", sans-serif;
-  background-image: url("../public/images/money_faces.jpg");
+  background-image: url("${background}");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25,3 +29,4 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+`;
