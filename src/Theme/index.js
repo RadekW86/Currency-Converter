@@ -6,7 +6,7 @@ import {
 } from "./styled.js";
 import themes from "../themes.js";
 
-const ThemeChoice = (props) => (
+const ThemeChoice = ({ theme, setTheme }) => (
   <>
     <StyledHeading>Choose theme:</StyledHeading>
     <form>
@@ -14,14 +14,17 @@ const ThemeChoice = (props) => (
         {themes.map((listItem) => (
           <li key={listItem.id}>
             <div>
-              <StyledLabel>
+              <StyledLabel
+                backgroundColor={listItem.backgroundColor}
+                color={listItem.buttonColor}
+              >
                 <StyledInput
                   type="radio"
                   name="theme"
                   value={JSON.stringify(listItem)}
-                  checked={listItem.id === props.theme.id}
+                  checked={listItem.id === theme.id}
                   onChange={(event) => {
-                    props.setTheme(JSON.parse(event.target.value));
+                    setTheme(JSON.parse(event.target.value));
                   }}
                 />
                 {listItem.name}

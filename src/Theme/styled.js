@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledList = styled.ul`
   list-style-type: none;
@@ -17,7 +17,21 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.label`
   font-weight: 700;
-  color: #333;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 5px;
+
+  ${({ backgroundColor }) =>
+    backgroundColor &&
+    css`
+      background-color: ${backgroundColor};
+    `}
+
+  ${({ color }) =>
+    color &&
+    css`
+      color: ${color};
+    `}
 `;
 
 export const StyledHeading = styled.h2`
