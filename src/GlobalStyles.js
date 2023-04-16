@@ -2,15 +2,15 @@ import { createGlobalStyle } from "styled-components";
 import background from "./money_faces.jpg";
 
 export const GlobalStyle = createGlobalStyle`
-html {
+ html {
   box-sizing: border-box;
-}
+ }
 
-*, ::before, ::after {
+ *, ::before, ::after {
   box-sizing: inherit;
-}
+ }
 
-body {
+ body {
   max-width: 900px;
   min-height: 600px;
   margin: 0 auto;
@@ -28,5 +28,5 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
+ }
 `;
