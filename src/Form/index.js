@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useImportedCurrencies } from "../useImportedCurrencies";
 import currencies from "../currenciesList";
 import {
   StyledForm,
   StyledLabel,
   StyledInput,
   StyledButton,
+  StyledInfo,
 } from "./styled.js";
 
 const Form = () => {
+  const { ratesObject } = useImportedCurrencies();
   const [inputAmount, setImputAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0].symbol);
   const [displayResult, setDisplayResult] = useState("Your money is worth ...");
@@ -63,6 +66,15 @@ const Form = () => {
       </StyledLabel>
       <StyledButton>CALC.</StyledButton>
       <div>{displayResult}</div>
+      <StyledInfo>
+        All rates are provided by https://exchangerate.host/
+        <br />
+        Exchange rates as of {
+        // JSON.parse(
+          ratesObject
+          // )
+          }
+      </StyledInfo>
     </StyledForm>
   );
 };

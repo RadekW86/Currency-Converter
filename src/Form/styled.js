@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  min-height: 280px;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,4 +32,11 @@ export const StyledButton = styled.button`
   &:hover {
     box-shadow: 7px 7px 10px black;
   }
+`;
+
+export const StyledInfo = styled.div`
+  text-align: center;
+  font-weight: 100;
+  font-size: 14px;
+  font-family: "Courier New", Courier, monospace;
 `;
