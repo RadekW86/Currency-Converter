@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Section from "./Section";
 import Header from "./Header";
 import Clock from "./Clock";
@@ -10,8 +10,14 @@ import themes from "./themes";
 import Footer from "./Footer";
 
 function App() {
-  const [theme, setTheme] = useState(themes[0]);
+  const [theme, setTheme] = useState(
+    JSON.parse(localStorage.getItem("lastTheme")) || themes[0]
+  );
   const { status } = useImportedCurrencies();
+
+  useEffect(() => {
+    localStorage.setItem("lastTheme", JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <ThemeProvider theme={theme}>
