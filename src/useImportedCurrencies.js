@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useImportedCurrencies = () => {
   const [status, setStatus] = useState("waiting");
-  const [ratesObject, setRatesObject] = useState();
+  const [ratesObjectStringed, setRatesObjectStringed] = useState("{}");
   const apiURL =
     "https://api.exchangerate.host/latest" +
     "?base=PLN&symbols=USD,EUR,GBP,CHF";
@@ -17,20 +17,20 @@ export const useImportedCurrencies = () => {
       return promise;
     };
 
-    fetch(apiURL)
-      .then((response) => {
+    (async () => {
+      try {
+        const response = await fetch(apiURL);
         if (!response.ok) {
           throw new Error(response.statusText);
         }
-        return response;
-      })
-      .then((response) => response.json())
-      .then((rates) => {
-        setRatesObject(JSON.stringify(rates));
+        const rates = await response.json();
+        setRatesObjectStringed(JSON.stringify(rates));
         wait(1500).then(() => setStatus("ok"));
-      })
-      .catch(() => setStatus("notOk"));
+      } catch {
+        setStatus("notOk");
+      }
+    })();
   }, []);
 
-  return { ratesObject, status };
+  return { ratesObjectStringed, status};
 };
