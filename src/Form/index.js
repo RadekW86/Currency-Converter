@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useImportedCurrencies } from "../useImportedCurrencies";
-import currencies from "../currenciesList";
 import {
   StyledForm,
   StyledLabel,
@@ -10,15 +9,32 @@ import {
 } from "./styled.js";
 
 const Form = () => {
-  const { ratesObject } = useImportedCurrencies();
+  const { ratesObjectStringed } = useImportedCurrencies();
   const [inputAmount, setImputAmount] = useState("");
-  const [currency, setCurrency] = useState(currencies[0].symbol);
+  const [currency, setCurrency] = useState("USD");
   const [displayResult, setDisplayResult] = useState("Your money is worth ...");
-  let result = 0;
+  let result;
+  let currencies = [];
 
+  const ratesObjectParsed = JSON.parse(ratesObjectStringed);
+  const { date: ratesDate, rates: importedRates } = ratesObjectParsed;
+
+  for (const currencyType in importedRates) {
+    currencies = [
+      ...currencies,
+      {
+        id: currencies.length === 0
+        ? 1
+        : currencies[currencies.length - 1].id + 1,
+        symbol: currencyType,
+        rate: importedRates[currencyType],
+      },
+    ];
+  }
+  
   const computeResult = (inputAmount, currency) => {
     const rate = currencies.find(({ symbol }) => symbol === currency).rate;
-    result = inputAmount / rate;
+    result = inputAmount * rate;
   };
 
   const printResult = (result) => {
@@ -32,9 +48,6 @@ const Form = () => {
     computeResult(inputAmount, currency);
     printResult(result);
   };
-
-  // const ratesObjectParsed = JSON.parse(ratesObject);
-  // const { date: ratesDate } = ratesObjectParsed;
 
   return (
     <StyledForm onSubmit={onFormSubmit}>
@@ -72,8 +85,7 @@ const Form = () => {
       <StyledInfo>
         All rates are provided by https://exchangerate.host/
         <br />
-        Exchange rates as of {" "}
-        {/* {ratesDate} */}
+        Exchange rates as of {ratesDate}
       </StyledInfo>
     </StyledForm>
   );
