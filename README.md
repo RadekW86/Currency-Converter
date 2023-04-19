@@ -4,12 +4,13 @@
 [click to visit](https://radekw86.github.io/currency-converter-basic-react/)
 
 ## General info:
-This basic calculator allows you to convert 1-1000 PLN into respective USD, EUR, GBP, CHF values.
+This currency exchange calculator allows you to convert PLN into respective USD, EUR, GBP, CHF values. All rates are imported from exchangerate.host api.
+Additional functionalities: current date 'n' time display, theme selector coupled with the local storage, loading/error alert Component.
 ## Technologies:
 <ul>
 <li>html</li>
 <li>JS ES6+</li>
-<li>React.js</li>
+<li>React.js - useState, useEffect, custom Hooks</li>
 <li>Styled Components</li>
 </ul>
 
