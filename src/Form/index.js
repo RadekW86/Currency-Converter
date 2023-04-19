@@ -33,6 +33,9 @@ const Form = () => {
     printResult(result);
   };
 
+  // const ratesObjectParsed = JSON.parse(ratesObject);
+  // const { date: ratesDate } = ratesObjectParsed;
+
   return (
     <StyledForm onSubmit={onFormSubmit}>
       <StyledLabel>
@@ -69,11 +72,8 @@ const Form = () => {
       <StyledInfo>
         All rates are provided by https://exchangerate.host/
         <br />
-        Exchange rates as of {
-        // JSON.parse(
-          ratesObject
-          // )
-          }
+        Exchange rates as of {" "}
+        {/* {ratesDate} */}
       </StyledInfo>
     </StyledForm>
   );
