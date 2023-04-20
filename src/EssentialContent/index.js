@@ -3,13 +3,13 @@ import { LoadingAlert, ErrorAlert } from "../Alert";
 
 const EssentialContent = ({ status }) => {
   switch (status) {
-    case "waiting":
+    case "loading":
       return <LoadingAlert />;
 
-    case "notOk":
+    case "error":
       return <ErrorAlert />;
 
-    case "ok":
+    case "success":
       return <Form />;
   }
 };

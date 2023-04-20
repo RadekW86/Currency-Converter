@@ -9,29 +9,29 @@ import {
 } from "./styled.js";
 
 const Form = () => {
-  const { ratesObjectStringed } = useImportedCurrencies();
+  const { ratesObject } = useImportedCurrencies();
   const [inputAmount, setImputAmount] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [displayResult, setDisplayResult] = useState("Your money is worth ...");
   let result;
   let currencies = [];
 
-  const ratesObjectParsed = JSON.parse(ratesObjectStringed);
-  const { date: ratesDate, rates: importedRates } = ratesObjectParsed;
+  const { date: ratesDate, rates: importedRates } = ratesObject;
 
   for (const currencyType in importedRates) {
     currencies = [
       ...currencies,
       {
-        id: currencies.length === 0
-        ? 1
-        : currencies[currencies.length - 1].id + 1,
+        id:
+          currencies.length === 0
+            ? 1
+            : currencies[currencies.length - 1].id + 1,
         symbol: currencyType,
         rate: importedRates[currencyType],
       },
     ];
   }
-  
+
   const computeResult = (inputAmount, currency) => {
     const rate = currencies.find(({ symbol }) => symbol === currency).rate;
     result = inputAmount * rate;
@@ -83,7 +83,7 @@ const Form = () => {
       <StyledButton>CALC.</StyledButton>
       <div>{displayResult}</div>
       <StyledInfo>
-        All rates are provided by https://exchangerate.host/
+        All rates are provided by exchangerate.host
         <br />
         Exchange rates as of {ratesDate}
       </StyledInfo>
