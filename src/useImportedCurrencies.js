@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const useImportedCurrencies = () => {
   const [status, setStatus] = useState("loading");
@@ -18,18 +19,15 @@ export const useImportedCurrencies = () => {
 
     (async () => {
       try {
-        const response = await fetch(apiURL);
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        const rates = await response.json();
-        setRatesObject(rates);
+        const response = await axios.get(apiURL);
+        setRatesObject(response.data);
         wait(1500).then(() => setStatus("success"));
+        console.log(ratesObject);
       } catch {
         setStatus("error");
       }
     })();
   }, []);
 
-  return { ratesObject, status};
+  return { ratesObject, status };
 };
