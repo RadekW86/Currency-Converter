@@ -14,26 +14,11 @@ const Form = () => {
   const [currency, setCurrency] = useState("USD");
   const [displayResult, setDisplayResult] = useState("Your money is worth ...");
   let result;
-  let currencies = [];
 
   const { date: ratesDate, rates: importedRates } = ratesObject;
 
-  for (const currencyType in importedRates) {
-    currencies = [
-      ...currencies,
-      {
-        id:
-          currencies.length === 0
-            ? 1
-            : currencies[currencies.length - 1].id + 1,
-        symbol: currencyType,
-        rate: importedRates[currencyType],
-      },
-    ];
-  }
-
   const computeResult = (inputAmount, currency) => {
-    const rate = currencies.find(({ symbol }) => symbol === currency).rate;
+    const rate = importedRates[currency];
     result = inputAmount * rate;
   };
 
@@ -75,8 +60,10 @@ const Form = () => {
           value={currency}
           onChange={(event) => setCurrency(event.target.value)}
         >
-          {currencies.map((currency) => (
-            <option key={currency.id}>{currency.symbol}</option>
+          {Object.keys(importedRates).map((currency) => (
+            <option key={currency} value={currency}>
+              {currency}
+            </option>
           ))}
         </StyledInput>
       </StyledLabel>

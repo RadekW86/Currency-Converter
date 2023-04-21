@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const useImportedCurrencies = () => {
   const [status, setStatus] = useState("loading");
-  const [ratesObject, setRatesObject] = useState("{}");
+  const [ratesObject, setRatesObject] = useState({ rates: {} });
   const apiURL =
     "https://api.exchangerate.host/latest?base=PLN&symbols=USD,EUR,GBP,CHF";
 
@@ -22,7 +22,6 @@ export const useImportedCurrencies = () => {
         const response = await axios.get(apiURL);
         setRatesObject(response.data);
         wait(1500).then(() => setStatus("success"));
-        console.log(ratesObject);
       } catch {
         setStatus("error");
       }
