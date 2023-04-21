@@ -1,7 +1,7 @@
 # `Currency Exchange Calculator`
 
 ## Demo:
-[click to visit](https://radekw86.github.io/currency-converter-basic-react/)
+[click to visit](https://radekw86.github.io/currency-converter/)
 
 ## General info:
 This currency exchange calculator allows you to convert PLN into respective USD, EUR, GBP, CHF values. All rates are imported from exchangerate.host api.

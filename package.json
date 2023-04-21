@@ -1,8 +1,8 @@
 {
-  "name": "currency-converter-basic-react",
+  "name": "currency-converter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://radekw86.github.io/currency-converter-basic-react/",
+  "homepage": "https://radekw86.github.io/currency-converter/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
