@@ -5,7 +5,7 @@ export const useImportedCurrencies = () => {
   const [status, setStatus] = useState("loading");
   const [ratesObject, setRatesObject] = useState({ rates: {} });
   const apiURL =
-    "https://api.exchangerate.host/latest?base=PLN&symbols=USD,EUR,GBP,CHF";
+    "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_dVdgG1qEK2BWM3YNF5N3wiwC7FrbbcXb6fzytPMe&currencies=USD%2CEUR%2CGBP%2CCHF&base_currency=PLN";
 
   useEffect(() => {
     const wait = (delay) => {
@@ -21,7 +21,9 @@ export const useImportedCurrencies = () => {
       try {
         const response = await axios.get(apiURL);
         setRatesObject(response.data);
-        wait(1500).then(() => setStatus("success"));
+        wait(1500).then(() => {
+          ratesObject.error ? setStatus("error") : setStatus("success");
+        });
       } catch {
         setStatus("error");
       }

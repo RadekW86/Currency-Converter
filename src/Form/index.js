@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useImportedCurrencies } from "../useImportedCurrencies";
 import {
   StyledForm,
@@ -10,12 +10,12 @@ import {
 
 const Form = () => {
   const { ratesObject } = useImportedCurrencies();
-  const [inputAmount, setImputAmount] = useState("");
+  const [inputAmount, setInputAmount] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [displayResult, setDisplayResult] = useState("Your money is worth ...");
   let result;
 
-  const { date: ratesDate, rates: importedRates } = ratesObject;
+  const { data: importedRates } = ratesObject;
 
   const computeResult = (inputAmount, currency) => {
     const rate = importedRates[currency];
@@ -47,7 +47,7 @@ const Form = () => {
           placeholder="--- put amount ---"
           required
           value={inputAmount}
-          onChange={(event) => setImputAmount(event.target.value)}
+          onChange={(event) => setInputAmount(event.target.value)}
         />
       </StyledLabel>
       <StyledLabel>
@@ -60,20 +60,17 @@ const Form = () => {
           value={currency}
           onChange={(event) => setCurrency(event.target.value)}
         >
-          {Object.keys(importedRates).map((currency) => (
-            <option key={currency} value={currency}>
-              {currency}
-            </option>
-          ))}
+          {importedRates &&
+            Object.keys(importedRates).map((currency) => (
+              <option key={currency} value={currency}>
+                {currency}
+              </option>
+            ))}
         </StyledInput>
       </StyledLabel>
       <StyledButton>CALC.</StyledButton>
       <div>{displayResult}</div>
-      <StyledInfo>
-        All rates are provided by exchangerate.host
-        <br />
-        Exchange rates as of {ratesDate}
-      </StyledInfo>
+      <StyledInfo>All rates are provided by freecurrencyapi.com</StyledInfo>
     </StyledForm>
   );
 };
